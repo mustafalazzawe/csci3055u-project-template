@@ -388,8 +388,58 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
 ## About the standard library
 
-> _Give some examples of the functions and data structures
-> offered by the standard library_.
+> The Rust Standard Library is the foundation of portable Rust software, a set of minimal and battle-tested shared abstractions for the broader Rust ecosystem. It offers core types, library-defined operations on language primitives, standard macros, I/O and multithreading, among many other things.
+>
+>```std``` is available to all Rust crayes by default, just as if each one contained an ```extern crate std;``` import at the crate port. This allows us to access the standard library with ```use``` statements through the path std. (ex. ```use std::env```)
+>
+>As the Standard Library is quite large, I will only be listing a few examples of each..
+>
+>*Primitive Types*
+> - ```i32```, 32-bit signed integer  
+> - ```u32```, 32-bit unsigned integer
+> - ```f32```, 32-bit floating point
+> - ```char```, a character 
+> - ```bool```, boolean
+> - ```array```, a fixed-size array
+> - ```slice```, a dynamically-sized view into a contiguous sequence
+> - str, string slices
+>
+>*Modules*
+> - ```alloc```, memory allocation
+> - ```env```, inspection and manipulation of the process's environment
+> - ```process```, a module for working with processes
+> - ```string```, a UTF-8 encoded, growable string
+> - ```thread```, native threads
+> - ```vec```, a contiguous growable array type with heap-allocated contents
+>
+>*Macros*
+> - ```assert```, ensure that a boolean expression if ```true``` at runtime
+> - ```concat```, concatenates literals into a static string slice
+> - ```eprintln```, macro for printing to the standard error, with a newline
+>
+>*Keywords*
+> - ```as```, the keyword for casting a value to a type
+> - ```const```, the keyword for defining constants
+> - ```extern```, for external connections in Rust code  
+> 
+>
+> A program using The Rust Standard Library: 
+>```Rust 
+>fn main() {
+>    let args: Vec<String> = env::args().collect();
+>
+>    let config = Config::new(&args).unwrap_or_else(|err| {
+>        eprintln!("Problem parsing arguments: {}", err);
+>        process::exit(1);
+>    });
+>
+>    if let Err(e) = minigrep::run(config) {
+>        eprintln!("Application error: {}", e);
+>
+>        process::exit(1);
+>    }
+>}
+>```
 
 ## About open source library
 
