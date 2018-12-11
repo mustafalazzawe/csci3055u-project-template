@@ -106,8 +106,6 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
   Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data.
 
-  Rust is a *statically typed* language, which means that it must know the types of all variables at compile time. The compiler can usually infer what type we want to use based on the value and how we use it.
-
   *Scalar Types*
 
   - Signed Intergers: ```i8```, ```i16```, ```i32```, ```i64```, ```i128``` and ```isize``` 
@@ -487,26 +485,39 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 >     - *Procedural* macros, which come in three kinds, custom ```#[derive]``` macros, attribute-like macros, and function-like macros 
 >
 >
-> - *Declarative macros* are the most widely used form of macros in Rust
->     - At their core, declarative macros allow you to write something similar to Rust ```match``` expression. 
+> - *Declarative macros* are the most widely used form of macros in Rust. At their core, declarative macros allow you to write something similar to Rust ```match``` expression. 
 > - *Procedural macros* accept some Rust code as an input, operate on that code, and produce some Rust code as an output rather than matching against patterns and replacing the code with other code as declarative macros do.
 >
 > **Symbol Resolution and Closure**
+> 
+> - Rust has the ability to use functions as values and pass them as arguments
+> - Rust's closures are anonymous functions you can save in a variable or pass as arguments to other functions
+> - Unlike functions, closures can capture values from the scope in which they're defined
 >
->
-> **Lexical vs Dynamic Scoping**
->
+> **Scoping Rules**
+> 
+> - Scopes play an important part in ownership, borrowing, and liftimes. As they indicate to the compiler when borrows are valid, when resources can be freed, and when variables are created or destoryed  
+> - Variables in Rust do more than just hold data in the stack: they also *own* resources
+> - Whenever an object goes out of a scope, its destructor is called and its owner resources are freed, this happens because Rust enforces RAII (Resource Acquisition Is Initialization)
+> - Since variables are in charge of freeing their own resources, resources can only have one owner
 >
 > **Functional Programming**
+> 
+> - Rust has features that are similar to features in many languages often reffered to as functional. 
+> - More specifically:
+>     - *Closures*, a function-like construct you can store in a variable
+>     - *Iterators*, a way of processing a series of elements
+> - Some other features of Rust that are influenced by the functional style, include pattern matching and enums 
 >
+> **Type System**
 >
-> **Static vs Dynamic Types**
+> -   Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data
+> - Rust is a *statically typed* language, which means that it must know the types of all variables at compile time
+> - The compiler can usually infer what type we want to use based on the value and how we use it
+> - Variables are immutable only by default, and can make them mutable by adding ```mut```, allowing the value to change
 >
 > **Strengths and Weaknesses**
 >
 >
-
-> _Organize your report according to the project description
-document_.
 
 
