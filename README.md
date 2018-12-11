@@ -102,41 +102,41 @@ fn main(){
 ```
 The exclamation mark indicates that this is a _macro_ call. The ```println!``` macro takes a format string and some values.
 
-***Data Types***
+***Primitive Types***
 
-Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data.
+  Every value in Rust is of a certain data type, which tells Rust what kind of data is being specified so it knows how to work with that data.
 
-Rust is a *statically typed* language, which means that it must know the types of all variables at compile time. The compiler can usually infer what type we want to use based on the value and how we use it.
+  Rust is a *statically typed* language, which means that it must know the types of all variables at compile time. The compiler can usually infer what type we want to use based on the value and how we use it.
 
-*Scalar Types*
+  *Scalar Types*
 
-- Signed Intergers: ```i8```, ```i16```, ```i32```, ```i64```, ```i128``` and ```isize``` 
-- Unsigned Intergers: ```u8```, ```u16```, ```u32```, ```u64```, ```u128``` and ```usize```  
-- Floating Point: ```f32```, ```f64```
-- Numeric Operations: ```+```, ```-```, ```*```, ```/```, ```%```
-- Character: ```char```, with unicode scalar values
-- Boolean: ```bool```, either ```true``` or ```false``` 
-- Unit Type: ```()```
+  - Signed Intergers: ```i8```, ```i16```, ```i32```, ```i64```, ```i128``` and ```isize``` 
+  - Unsigned Intergers: ```u8```, ```u16```, ```u32```, ```u64```, ```u128``` and ```usize```  
+  - Floating Point: ```f32```, ```f64```
+  - Numeric Operations: ```+```, ```-```, ```*```, ```/```, ```%```
+  - Character: ```char```, with unicode scalar values
+  - Boolean: ```bool```, either ```true``` or ```false``` 
+  - Unit Type: ```()```
 
-*Compound Types*
+  *Compound Types*
 
-- Arrays: ```[1, 2, 3]```
-- Tuples: ```(1, true)```
+  - Arrays: ```[1, 2, 3]```
+  - Tuples: ```(1, true)```
 
-*Custom Types*
+  *Custom Types*
 
-Rust custom data types are formed mainly through the two keywords:
+  Rust custom data types are formed mainly through the two keywords:
 
-- ```struct```: define a structure 
-- ```enum```: define an enumeration
+  - ```struct```: define a structure 
+  - ```enum```: define an enumeration
 
-Constants can also be created via the ```const``` and ```static``` keywords
+  Constants can also be created via the ```const``` and ```static``` keywords
 
 
-Values (like literals) can be bound to variables, using the ```let``` binding.
+  Values (like literals) can be bound to variables, using the ```let``` binding.
 
-```Rust 
-fn main() {
+  ```Rust 
+  fn main() {
     // Variables can be type annotated.
     let logical: bool = true;
 
@@ -160,15 +160,91 @@ fn main() {
     
     // Variables can be overwritten with shadowing.
     let mutable = true;
-}
-```
+  }
+  ```
 
 ***Functions***
+  
+  Rust code uses *snake case* as the conventional style for function and variable names. In snake case, all letters are lowercase and underscores separate words. Here’s a program that contains an example function definition:
 
+  ```Rust 
+  fn main() {
+    println!("Hello, world!");
 
+    another_function();
+  }
 
+  fn another_function() {
+    println!("Another function.");
+  }
+  ```
 
+  The ```main``` function is the entry point of many programs.
 
+  Function definitions in Rust start with ```fn``` and have a set of parentheses after the function name. The curly brackets tell the compiler where the function body begins and ends.
+
+  *Function - Parameters*
+
+  Functions can also be defined to have *parameters*, which are special variables that are part of a function’s signature. When a function has parameters, you can provide it with concrete values for those parameters.
+
+  ```Rust 
+  fn main() {
+    another_function(5);
+  }
+
+  fn another_function(x: i32, y: i32) {
+      println!("The value of x is: {}", x);
+      println!("The value of y is: {}", y);
+  }
+  ```
+
+  In function signatures, you *must* declare the type of each parameter. This is a deliberate decision in Rust’s design: requiring type annotations in function definitions means the compiler almost never needs you to use them elsewhere in the code to figure out what you mean.
+
+  *Functions - Return Values*
+
+  Functions can return values to the code that calls them. We don’t name return values, but we do declare their type after an arrow (```->```). In Rust, the return value of the function is synonymous with the value of the final expression in the block of the body of a function. 
+
+  ```Rust 
+  fn five() -> i32 {
+    5
+  }
+
+  fn main() {
+    let x = five();
+
+    println!("The value of x is: {}", x);
+  }
+  ```
+
+  There are no function calls, macros, or even ```let``` statements in the five function—just the number ```5``` with no semicolon because it's an expresson whose value we want to return. Note that the function’s return type is also specified, as ```-> i32```.
+
+  ```Rust 
+  fn main() {
+    let x = plus_one(5);
+
+    println!("The value of x is: {}", x);
+  }
+
+  fn plus_one(x: i32) -> i32 {
+    x + 1
+  }
+  ```
+
+  Running this code will print ```The value of x is: 6```. But if we were to add a semicolon at the end of ```x + 1```, this would change it from an expression to a statement, resulting in a error.
+
+  ```Rust
+  fn main() {
+    let x = plus_one(5);
+
+    println!("The value of x is: {}", x);
+  }
+
+  fn plus_one(x: i32) -> i32 {
+    x + 1;
+  }
+  ```
+
+***Control Flow***
 
 ## About the tools
 
