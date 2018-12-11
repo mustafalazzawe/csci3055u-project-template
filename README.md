@@ -445,7 +445,7 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
 >**Rocket**
 >
-> - Rocket is a web framework for Rust taht makes it simple to write *fast*, secure web applications without sacrificing flexibility, usability, or type safety.
+> - Rocket is a web framework for Rust that makes it simple to write *fast*, secure web applications without sacrificing flexibility, usability, or type safety.
 > - The official Github repo,  https://github.com/SergioBenitez/Rocket
 >
 >
@@ -469,6 +469,42 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 > - All of the Rocket libraries are managed by *Cargo*. Resulting in a simple compilation
 
 # Analysis of the language
+
+> **Functional vs. Procedural Programming**
+>
+>  - Rust is a *multi-paradigm* programming language that supports functional, imperative, object-oriented, and concurrent-action programming styles.
+>  - Rust's design has taken inspiration from a lot of existing languages and techniques, and *functional programming* has significantly influenced it.
+> - Rust is not a "pure" functional programming language, but it does adhere to many of the tenets
+>
+> **Meta-Programming**
+>
+> - Rust provides a powerful macro system that allows metaprogramming
+> - However, unlike macros in C and other languages, Rust macros are expanded into abstract syntax trees, rather than string preprocessing, so you don't get unexpected precedence bugs.
+>
+>
+> - *Macros* refers to the family of features in Rust:
+>     - *Declarative* macros with ```macro_rules!```
+>     - *Procedural* macros, which come in three kinds, custom ```#[derive]``` macros, attribute-like macros, and function-like macros 
+>
+>
+> - *Declarative macros* are the most widely used form of macros in Rust
+>     - At their core, declarative macros allow you to write something similar to Rust ```match``` expression. 
+> - *Procedural macros* accept some Rust code as an input, operate on that code, and produce some Rust code as an output rather than matching against patterns and replacing the code with other code as declarative macros do.
+>
+> **Symbol Resolution and Closure**
+>
+>
+> **Lexical vs Dynamic Scoping**
+>
+>
+> **Functional Programming**
+>
+>
+> **Static vs Dynamic Types**
+>
+> **Strengths and Weaknesses**
+>
+>
 
 > _Organize your report according to the project description
 document_.
