@@ -402,7 +402,7 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 > - ```bool```, boolean
 > - ```array```, a fixed-size array
 > - ```slice```, a dynamically-sized view into a contiguous sequence
-> - str, string slices
+> - ```str```, string slices
 >
 >*Modules*
 > - ```alloc```, memory allocation
@@ -443,8 +443,30 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
 ## About open source library
 
-> _Describe at least one contribution by the open source
-community written in the language._
+>**Rocket**
+>
+> - Rocket is a web framework for Rust taht makes it simple to write *fast*, secure web applications without sacrificing flexibility, usability, or type safety.
+> - The official Github repo,  https://github.com/SergioBenitez/Rocket
+>
+>
+> - An example of a complete Rocket application:
+> 
+>    ```Rust 
+>     #![feature(proc_macro_hygiene, decl_macro)]
+>
+>     #[macro_use] extern crate rocket;
+>
+>     #[get("/hello/<name>/<age>")]
+>     fn hello(name: String, age: u8) -> String {
+>       format!("Hello, {} year old named {}!", age, name)
+>     }
+>
+>     fn main() {
+>       rocket::ignite().mount("/", routes![hello]).launch();
+>     }
+>    ```
+> - Rocket requires a nightly version of Rust as it makes heavy use of syntax extenstions.
+> - All of the Rocket libraries are managed by *Cargo*. Resulting in a simple compilation
 
 # Analysis of the language
 
