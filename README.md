@@ -517,7 +517,28 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 > - Variables are immutable only by default, and can make them mutable by adding ```mut```, allowing the value to change
 >
 > **Strengths and Weaknesses**
+> 
+> *Strengths* 
+> - Safety
+> - Speed
+> - Good Design and Expressiveness
+> - Concurrent
+> - Great Community and Documentation 
+> 
+> *Weaknesses*
+> - Learning Curve
+> - Too Young (Rust is still a fairly new language) 
 >
->
+> Rust is still a young language, and is more so suitable for experenced programmers, as it is quite similar to C, making it an overwhelming language for beginners.
+> But for those who are expericenced is a greatly beneficial language to know, as it is well suited for robust, reliable, and high peformance programs.
 
+### References 
 
+[1] https://doc.rust-lang.org/book/foreword.html
+[2] https://doc.rust-lang.org/stable/rust-by-example/
+[3] https://doc.rust-lang.org/rustc/what-is-rustc.html
+[4] https://doc.rust-lang.org/cargo/index.html
+[5] https://doc.rust-lang.org/std/
+[6] https://stevedonovan.github.io/rust-gentle-intro/1-basics.html
+[7] https://lise-henry.github.io/books/trpl2.pdf
+[8] https://killercup.github.io/trpl-ebook/trpl-2015-05-13-a4.pdf
