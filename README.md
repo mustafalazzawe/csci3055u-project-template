@@ -45,13 +45,13 @@ The first numbered pre-alpha release of the Rust compiler occurred in January 20
 
   ```Rust
   //function
-  fn add(x: i32, y: i32) -> i32{
+  fn add(x: i32, y: i32) -> i32 {
     x + y
   }
 
   //test
   #[test]
-  fn test_add(){
+  fn test_add() {
     assert_eq! (add(12, 34), 46);
   }
   ```
@@ -93,7 +93,7 @@ It is a good mix of functional and imperative styles, providing advantages of th
 
 ```Rust
 //single-line commment
-fn main(){
+fn main() {
   /*
   multi-line comment
   */
@@ -245,6 +245,133 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
   ```
 
 ***Control Flow***
+
+  The most common constructs that let you control the flow of execution of Rust code are ```if``` expressions and loops.
+
+  *```if``` Expression*
+
+  The ```if``` expression in Rust is the same as many other languages. You provide a condition and then state, “If this condition is met, run this block of code. If the condition is not met, do not run this block of code.”
+
+  ```Rust 
+  fn main() {
+    let number = 6;
+
+    if number % 4 == 0 {
+        println!("number is divisible by 4");
+    } else if number % 3 == 0 {
+        println!("number is divisible by 3");
+    } else if number % 2 == 0 {
+        println!("number is divisible by 2");
+    } else {
+        println!("number is not divisible by 4, 3, or 2");
+    }
+  }
+  ```
+
+  In Rust you may also use an ```if``` expression in a ```let``` statement.
+
+  ```Rust 
+  fn main() {
+    let condition = true;
+    let number = if condition {
+        5
+    } else {
+        6
+    };
+
+    println!("The value of number is: {}", number);
+  }
+  ```
+
+  *Repetition with Loops*
+
+  It’s often useful to execute a block of code more than once. For this task, Rust provides several *loops*.
+  
+  Rust has three kinds of loops: ```loop```, ```while```, and ```for```. 
+
+  *Repeating Code with ```loop```*
+
+  The ```loop``` keyword tells Rust to execute a block of code over and over again forever or until you explicitly tell it to stop.
+
+  ```Rust 
+  fn main() {
+    loop{
+      println!("again!");
+    }
+  }
+  ```
+
+  Running this program will result in ```again!``` being printed over and over until we stop the program manually.
+
+  Fortunately, Rust provides another, more reliable way to break out of a loop. You can place the ```break``` keyword within the loop to tell the program when to stop executing the loop.
+
+  ```Rust 
+  fn main() {
+    let mut x = 5;
+
+    loop{
+        x += x -3;
+
+        println!("{}", x);
+
+        if x % 5 == 0 {
+            break;
+        }
+    }
+  }
+  ```
+
+  *Conditional Loops with ```while```*
+
+  It’s often useful for a program to evaluate a condition within a loop. While the condition is true, the loop runs. When the condition ceases to be true, the program calls ```break```, stopping the loop. This loop type could be implemented using a combination of ```loop```, ```if```, ```else```, and ```break```.
+
+  However, this pattern is so common that Rust has a built-in language construct for it, called a ```while``` loop.
+  
+  ```Rust 
+  //countdown - with while
+  fn main() { 
+    let mut number = 3;
+
+    while number != 0 {
+      print!("{}..", number);
+
+      number -= 1;
+    }
+    println!("LIFTOFF!");
+  }
+  ```
+
+  *Looping Through a Collection with ```for```*
+
+  Rust's ```for``` loops work a bit differently than in other languages. 
+
+  C vs Rust ```for``` loop
+
+  ```C
+  //C for loop 
+  for(x = 0; x < 10; x++) {
+    printf("%d\n", x);
+  } 
+  ```
+
+  ```Rust
+  //Rust for loop 
+  for x in 0..10 {
+    println!("{}", x);
+  } 
+  ```
+
+  Where's what countdown would look like using a ```for``` loop.
+
+  ```Rust 
+  //countdown - with for
+  fn main() {
+    for number in (1..4).rev() {
+      print!("{}..", number);
+    }
+    println!("LIFTOFF!");
+  }
+  ```
 
 ## About the tools
 
