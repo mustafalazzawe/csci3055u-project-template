@@ -29,7 +29,7 @@ The first numbered pre-alpha release of the Rust compiler occurred in January 20
 
 ### Features 
 
-**Seamless compilation and dependency management**
+***Seamless compilation and dependency management***
   
   In Rust it is very easy to compile a project and manage dependencies. This is thanks to ```cargo```, compiling, running or testing a project is as simple as a one-lime command.
 
@@ -39,7 +39,7 @@ The first numbered pre-alpha release of the Rust compiler occurred in January 20
   cargo test
   ```
 
-**Easy testing and continuous integration**
+***Easy testing and continuous integration***
 
   Writing tests in Rust is quite straightforward. All you have to do is to declare a function with ```#[test]```.
 
@@ -58,7 +58,7 @@ The first numbered pre-alpha release of the Rust compiler occurred in January 20
 
   Then, it is a simiple as running ```cargo test``` and Corgo will collect all tests, compile and run them.
 
-**Error Messages**
+***Error Messages***
 
   Error messages are well presented, aware of the context, and suggest potential misspellings.
 
@@ -364,7 +364,6 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
   Where's what countdown would look like using a ```for``` loop.
 
   ```Rust 
-  //countdown - with for
   fn main() {
     for number in (1..4).rev() {
       print!("{}..", number);
@@ -375,7 +374,17 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
 ## About the tools
 
-> _Describe the compiler or interpreter needed_.
+> - ```rustc``` is the compiler for the Rust Programming language, provided by the project itself. 
+> - The compiler takes your source code and produces binary code, either as a library or executable.
+> - Most Rust programmers don't invoke ```rustc``` directly, but instead do it through *Cargo*.
+> - *Cargo* is a tool that allows Rust packages to declare their various dependencies and ensure that you'll always get a repeatable build.
+>
+> - To accomplish this, *Cargo* does four things:
+>     - introduces two metadata files with various bits of package information.
+>     - fetches and builds your packages's dependencies.
+>     - invokes ```rustc``` or another build tool with the correct parameters to build your package.
+>     - introduces conventions to make working with Rust packages easier
+
 
 ## About the standard library
 
