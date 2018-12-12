@@ -88,7 +88,6 @@ fn main() {
     }
 
     let mut cli = Cli::new(Data{answer: 42});
-
     cli.cmd("go",|data,args| {
         if args.len() == 0 { 
             return err("need 1 argument"); 
