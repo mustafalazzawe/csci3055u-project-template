@@ -550,5 +550,3 @@ The exclamation mark indicates that this is a _macro_ call. The ```println!``` m
 
 [8] https://killercup.github.io/trpl-ebook/trpl-2015-05-13-a4.pdf
 
-
-
