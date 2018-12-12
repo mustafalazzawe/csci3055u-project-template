@@ -9,6 +9,19 @@ use std::net::TcpListener;
 use std::thread;
 use std::time::Duration;
 
+/*
+Cargo Process- 
+
+cargo new --bin hello
+cd hello/
+
+-> both html files in root
+-> src/lib.rs
+-> src/bin/main.rs
+
+cargo run
+-> open window go to http://127.0.0.1:7878/
+*/
 
 fn main() {
     //listen for TCP coneections
